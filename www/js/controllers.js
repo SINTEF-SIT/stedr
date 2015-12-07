@@ -136,8 +136,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
   })
 
   var tag = JSON.parse(JSON.stringify($scope.place.title));
-  tag = 'stedr_' + tag.replace(/a+\?/gi, "å").replace(/00oe/g, "ø").replace(/00ae/g, "æ").replace(/00OE/g, "Ø").replace(/00AE/g, "Æ").replace(/00aa/g, "å").replace(/00AA/g, "Å").replace(/ /g, "_");
-  console.log(tag);
+  tag = 'stedr_' + tag.replace(/a+\?/gi, "å").replace(/00oe/g, "ø").replace(/00ae/g, "æ").replace(/00OE/g, "Ø").replace(/00AE/g, "Æ").replace(/00aa/g, "å").replace(/00AA/g, "Å").replace(/ /g, "_").replace(/./g, "");
 
   Image.list(tag).then(function(images) {
     $scope.images = images;
