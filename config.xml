@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.stedr2664759" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>stedr2</name>
+<widget id="no.sintef.stedr" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>stedr</name>
   <description>
-        An Ionic Framework and Cordova project.
-    </description>
+    stedr is a prototype mobile application for discovering digital stories related to places around you. Anyone can create and share new places and new stories.
+  </description>
   <author email="" href="https://sintef.no/">
       SINTEF ICT
     </author>
