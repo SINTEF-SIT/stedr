@@ -1,0 +1,210 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+
+$primary-color: #40B0D2;
+$primary-text: #fff;
+$positive: $primary-color;
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+.bullet {
+  margin: 30px 0;
+  list-style-type: disc;
+
+  li {
+    text-align: left;
+    list-style: disc;
+    margin: 10px 0px;
+    padding: 1% 0 1% 4%;
+  }
+}
+
+.loading {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  padding: 2%;
+  width: 30%;
+  z-index: 9999;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #212121;
+}
+
+.subheader {
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid $primary-color;
+  color: $primary-color;
+  margin-bottom: 0;
+  padding-top: 5px;
+}
+
+.ingress {
+  font-weight: bold;
+  font-style: italic;
+  padding: 3%;
+
+  .author {
+    font-style: normal;
+    padding-top: 3%;
+    font-weight: normal;
+    display: block;
+  }
+}
+
+.mainContent {
+  padding: 3%;
+  text-align: justify;
+}
+
+audio {
+  width: 100%;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mapMarker {
+  width: 200px;
+  height: 50px;
+  line-height: 1.35;
+  overflow: hidden;
+  white-space: nowrap;
+
+  .title {
+    width: 70%;
+    display: block;
+    float: left;
+    font-size: 150%;
+    height: 48px;
+    padding: 5px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -webkit-hypens: auto;
+    -ms-hypens: auto;
+    -moz-hypens: auto;
+    hyphens: auto;
+  }
+
+  img {
+    width: 30%;
+    height: 48px;
+  }
+}
+
+.scroll {
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.full-width {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.credits {
+  width: 100%;
+  display: block;
+  float: left;
+  background: $primary-color;
+  color: $primary-text;
+  margin: -6px 0 0 0;
+
+  img {
+    width: 20%;
+    float: left;
+  }
+
+  .image-text {
+    display: block;
+    float: left;
+    padding: 2%;
+  }
+
+  .likes, .comments {
+    clear: left;
+  }
+}
+
+.stedrTabs {
+  display: flex;
+  width: 100%;
+  margin-top: -6px;
+  flex-flow: row;
+  justify-content: space-around;
+  background: $primary-color;
+  color: $primary-text;
+
+  .item-holder {
+    width: 33%;
+
+    .tab-item {
+      padding: 5%;
+      font-size: 120%;
+    }
+  }
+}
+
+.stedr-card {
+  width: 44%;
+  display: block;
+  float: left;
+  margin: 3%;
+  overflow: hidden;
+  position: relative;
+  background: $primary-color;
+
+
+  .title {
+    text-align: center;
+    vertical-align: baseline;
+    width: 100%;
+    background: $primary-color;
+    color: $primary-text;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "videojs-youtube",
+  "version": "2.0.3",
+  "homepage": "https://github.com/eXon/videojs-youtube",
+  "authors": [
+    "Benoit Tremblay <trembl.ben@gmail.com>"
+  ],
+  "description": "YouTube playback technology for Video.js",
+  "main": "dist/Youtube.min.js",
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "videojs",
+    "video.js",
+    "vjs",
+    "YouTube",
+    "tech"
+  ],
+  "ignore": [
+    ".npmignore",
+    ".gitignore",
+    ".jshintrc",
+    ".jshintignore",
+    "src",
+    "tests",
+    "karma.conf.js"
+  ],
+  "dependencies": {
+    "video.js": "^5.0.0"
+  },
+  "_release": "2.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.0.3",
+    "commit": "29e43b632e02e267d4e30bf66b0d8fc1f60b535d"
+  },
+  "_source": "git://github.com/eXon/videojs-youtube.git",
+  "_target": "~2.0.3",
+  "_originalSource": "videojs-youtube",
+  "_direct": true
+}

@@ -1,0 +1,14 @@
+<ion-view view-title="Collections">
+  <ion-content>
+    <div class="loading" ng-if="loading">
+      Loading... <ion-spinner></ion-spinner>
+    </div>
+    <ion-list>
+      <ion-item ng-repeat="collection in collections" class="item-thumbnail-left" href="#/app/collections/{{collection.id}}">
+        <img ng-src="{{ collection.featuredImage }}" />
+        <h2>{{ collection.title }}</h2>
+        <p>{{ collection.ingress }}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-view view-title="{{ place.title }}">
+  <ion-content>
+    <img src="{{ image.url }}" class="full-width" alt="{{ image.caption }}" />
+
+    <div class="credits">
+      <img src="{{ image.profilePicture }}" />
+      <div class="image-text">
+        <p>{{ image.username }}</p>
+        <span class="likes"><span class="ion-heart"></span> {{ image.likesCount }}</span>
+        <span class="comments"><span class="ion-chatbox"></span> {{ image.commentCount }}</span>
+      </div>
+    </div>
+
+    <div class="mainContent">
+      <p>{{ image.caption }}</p>
+    </div>
+
+  </ion-content>
+</ion-view>

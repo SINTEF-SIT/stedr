@@ -1,0 +1,14 @@
+<ion-view view-title="stedr">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-loop" ng-click="refresh()">
+    </button>
+    <button class="button button-icon ion-arrow-shrink" ng-click="toMe()">
+    </button>
+  </ion-nav-buttons>
+  <ion-content>
+    <div class="loading" ng-if="loading">
+      Loading... <ion-spinner></ion-spinner>
+    </div>
+    <div id="map" data-tap-disabled="true"></div>
+  </ion-content>
+</ion-view>

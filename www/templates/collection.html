@@ -1,0 +1,24 @@
+<ion-view view-title="{{ collection.title }}">
+  <ion-content>
+    <div class="loading" ng-if="loading">
+      Loading... <ion-spinner></ion-spinner>
+    </div>
+
+    <img ng-src="{{ collection.featuredImage }}" alt="{{ collection.description }}" class="full-width" />
+
+    <div class="mainContent">
+      {{ collection.ingress }}
+      {{ collection.fortelling }}
+
+      <h3 class="subheader">Stories</h3>
+    </div>
+    <div>
+      <div class="stedr-card" style="height: {{ cardHeight }}; widht: {{ cardHeight }};" ng-repeat="story in stories">
+        <a href="#/app/stories/{{ story.id }}">
+          <img class="full-width" ng-src="{{ story.featuredImage }}" alt="{{ story.description }}" />
+          <span style="height: {{ cardTitle }};" class="title">{{ story.title }}</span>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

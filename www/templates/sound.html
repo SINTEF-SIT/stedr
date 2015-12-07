@@ -1,0 +1,24 @@
+<ion-view view-title="{{ place.title }}">
+  <ion-content>
+    <img src="{{ image }}" class="full-width" alt="{{ sound.title }}" />
+
+    <div class="credits">
+      <img src="{{ sound.avatarURL }}" />
+      <div class="image-text">
+        <p>{{ sound.userName }}</p>
+        <span class="likes"><span class="ion-heart"></span> {{ sound.favoriteCount }}</span>
+      </div>
+    </div>
+
+    <div class="ingress">
+      {{ sound.title }}
+    </div>
+
+    <audio ng-src="{{ sound.streamURL|trustUrl }}" controls preload="auto"></audio>
+
+    <div class="mainContent">
+      {{ sound.description }}
+    </div>
+
+  </ion-content>
+</ion-view>

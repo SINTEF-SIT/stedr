@@ -1,0 +1,39 @@
+<ion-view view-title="{{ story.title }}">
+  <ion-content>
+    <div ng-show="pictureTab" ng-init="pictureTab=true">
+      <ks-swiper-container speed="2000" loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="true" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 1,slideShadows : true}}">
+        <ks-swiper-slide class="swiper-slide" ng-repeat="image in story.pictures">
+          <img ng-src="{{ image }}" width="100%">
+        </ks-swiper-slide>
+      </ks-swiper-container>
+    </div>
+    <div ng-show="videoTab">
+      <ks-swiper-container speed="2000" loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="true" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 1,slideShadows : true}}">
+        <ks-swiper-slide class="swiper-slide" ng-repeat="wrapper in videos">
+          <video ng-if="isHtmlVideo(wrapper)" class="video-js vjs-default-skin" controls ng-width="{{ width }}px" width="375px" preload="auto" vjs-video vjs-media="wrapper.video"></video>
+          <div class="video-container" ng-if="isYoutube(wrapper)">
+            <iframe ng-if="isYoutube(wrapper)" width="{{ width }}px" ng-src="{{ youtubeSrc(wrapper) }}"></iframe>
+          </div>
+          <div class="video-container" ng-if="isVimeo(wrapper)">
+            <iframe ng-if="isVimeo(wrapper)" ng-src="{{ vimeoSrc(wrapper) }}" width="{{width}}px" frameborder="0"></iframe>
+          </div>
+        </ks-swiper-slide>
+      </ks-swiper-container>
+    </div>
+    <div class="stedrTabs" ng-show="hasVideo(videos)">
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[pictureTab]" ng-click="pictureTab = true; videoTab=false">Images</a></span>
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[videoTab]" ng-click="videoTab = true; pictureTab=false">Video</a></span>
+    </div>
+
+    <div class="ingress">
+      {{ story.ingress }}
+
+      <span class="author">By: {{ story.author }}</span>
+    </div>
+
+    <div class="mainContent">
+      {{ story.fortelling }}
+    </div>
+
+  </ion-content>
+</ion-view>

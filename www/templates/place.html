@@ -1,0 +1,41 @@
+<ion-view view-title="{{ place.title }}">
+  <ion-content>
+    <div class="loading" ng-if="loading">
+      Loading... <ion-spinner></ion-spinner>
+    </div>
+    <img ng-src="{{ place.pictureUrl }}" alt="{{ place.description }}" class="full-width" />
+    <div class="credits"><span class="image-text">Photo: {{ place.ownerName }}</span></div>
+    <div class="stedrTabs" ng-init="storyTab=true">
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[storyTab]" ng-click="storyTab = true; pictureTab=false; soundTab=false">Stories</a></span>
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[pictureTab]" ng-click="pictureTab = true; storyTab=false; soundTab=false">Pictures</a></span>
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[soundTab]" ng-click="soundTab = true; storyTab=false; pictureTab=false">Sounds</a></span>
+    </div>
+
+    <div ng-show="storyTab">
+      <div class="stedr-card" style="height: {{ cardHeight }}; widht: {{ cardHeight }};" ng-repeat="story in stories">
+        <a href="#/app/stories/{{ story.id }}">
+          <img class="full-width" ng-src="{{ story.featuredImage }}" alt="{{ story.description }}" />
+          <span style="height: {{ cardTitle }};" class="title">{{ story.title }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div ng-show="pictureTab">
+      <div class="stedr-card" style="height: {{ cardHeight }}; widht: {{ cardHeight }};" ng-repeat="image in images">
+        <a href="#/app/images/{{ place.id }}/{{ image.id }}">
+          <img class="full-width" ng-src="{{ image.url }}" alt="{{ image.caption }}" />
+        </a>
+      </div>
+    </div>
+
+    <div ng-show="soundTab">
+      <div class="stedr-card" style="height: {{ cardHeight }}; widht: {{ cardHeight }};" ng-repeat="sound in sounds">
+        <a href="#/app/sounds/{{ place.id }}/{{ sound.id }}">
+          <img class="full-width" ng-src="{{ sound.artworkURL }}" alt="{{ sound.title }}" />
+          <span style="height: {{ cardTitle }};" class="title">{{ sound.title }}</span>
+        </a>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>
