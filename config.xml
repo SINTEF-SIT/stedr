@@ -5,8 +5,8 @@
     stedr is a prototype mobile application for discovering digital stories related to places around you. Anyone can create and share new places and new stories.
   </description>
   <author email="" href="https://sintef.no/">
-      SINTEF ICT
-    </author>
+    SINTEF ICT
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="webviewbounce" value="false"/>
@@ -24,6 +24,7 @@
   <preference name="ShowSplashScreenSpinner" value="false" />
   <preference name="FadeSplashScreen" value="true" />
   <preference name="FadeSplashScreenDuration" value="1.0" />
+  <preference name="StatusBarBackgroundColor" value="#40B0D2" />
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
