@@ -20,6 +20,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
 .controller('PlacesMapCtrl', function($scope, $state, $cordovaGeolocation, Place) {
   $scope.places = [];
+  var markers = [];
 
   $scope.loading = true;
 
@@ -47,6 +48,17 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
   $scope.map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
+  var clearMarkers = function() {
+    for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+    }
+  }
+
+  var deleteMarkers = function() {
+    clearMarkers();
+    markers = [];
+  }
+
   var loadPlaces = function(refresh) {
     Place.list(refresh).then(function(places) {
       var infoWindow = new InfoBubble({
@@ -66,6 +78,8 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
             animation: google.maps.Animation.DROP,
             position: latLng
         });
+
+        markers.push(marker);
 
         var content = '<a href="#/app/places/' + place.id + '"><div class="mapMarker"><span class="title">' + place.title + '</span><img src="' + place.thumbnailUrl + '" /></div></a>';
 
@@ -87,7 +101,8 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
   loadPlaces(false);
 
-  var refresh = function() {
+  $scope.refresh = function() {
+    deleteMarkers();
     $scope.loading = true;
     loadPlaces(true);
   }
