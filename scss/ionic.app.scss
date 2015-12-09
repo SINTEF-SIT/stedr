@@ -42,9 +42,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   margin: 0 auto;
   position: absolute;
   top: 50%;
-  left: 35%;
+  left: 30%;
   padding: 2%;
-  width: 30%;
+  width: 40%;
   z-index: 9999;
   background: #fff;
   border-radius: 2px;
@@ -164,10 +164,17 @@ audio {
 }
 
 .stedrTabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   margin-top: -6px;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
   flex-flow: row;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   background: $primary-color;
   color: $primary-text;
