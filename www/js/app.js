@@ -153,15 +153,6 @@ angular.module('stedr', ['ionic', 'stedr.controllers', 'vjs.video', 'ngCordova']
     }
   })
 
-  .state('app.help_story', {
-    url: '/help/story',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/help-add-story.html'
-      }
-    }
-  })
-
   .state('app.help_picture', {
     url: '/help/picture',
     views: {
