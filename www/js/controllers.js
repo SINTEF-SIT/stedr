@@ -26,7 +26,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
   var mapOptions = {
     center: new google.maps.LatLng(52.316523, 5.259705),
-    zoom: 12,
+    zoom: 3,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     streetViewControl: false,
     mapTypeControl: false,
@@ -109,7 +109,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
   var options = {
     timeout: 10000,
-    enableHighAccuracy: true
+    enableHighAccuracy: false
   };
 
   var toMe = function() {
@@ -151,8 +151,10 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
   })
 
   var tag = JSON.parse(JSON.stringify($scope.place.title));
-  tag = 'stedr_' + tag.replace(/a+\?/gi, "å").replace(/00oe/g, "ø").replace(/00ae/g, "æ").replace(/00OE/g, "Ø").replace(/00AE/g, "Æ").replace(/00aa/g, "å").replace(/00AA/g, "Å").replace(/ /g, "_").replace(/./g, "");
-
+  tag = 'stedr_' + tag.replace(/a+\?/gi, "å").replace(/00oe/g, "ø").replace(/00ae/g, "æ").replace(/00OE/g, "Ø").replace(/00AE/g, "Æ").replace(/00aa/g, "å").replace(/00AA/g, "Å").replace(/ /g, "_");
+  
+  console.log("TAG: ", tag);
+  
   Image.list(tag).then(function(images) {
     $scope.images = images;
     imagesLoaded = true;
