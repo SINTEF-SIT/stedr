@@ -26,6 +26,7 @@
           <img class="full-width" ng-src="{{ image.url }}" alt="{{ image.caption }}" />
         </a>
       </div>
+      <button ng-click="goto('image')" class="btn bottom">Add Picture</button>
     </div>
 
     <div ng-show="soundTab">
@@ -35,6 +36,7 @@
           <span style="height: {{ cardTitle }};" class="title">{{ sound.title }}</span>
         </a>
       </div>
+      <button ng-click="goto('sound')" class="btn bottom">Add Sound</button>
     </div>
 
   </ion-content>

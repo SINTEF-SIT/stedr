@@ -215,3 +215,12 @@ audio {
     text-overflow: ellipsis;
   }
 }
+
+.bottom {
+  width: 100%;
+  color: $primary-text;
+  background: $primary-color;
+  border: 0;
+  padding: 5px;
+  margin-bottom: -2px;
+}

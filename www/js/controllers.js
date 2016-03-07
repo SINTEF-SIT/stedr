@@ -129,7 +129,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
   }
 })
 
-.controller('PlaceCtrl', function($scope, $stateParams, $window, $ionicLoading, Place, Story, Image, Sound) {
+.controller('PlaceCtrl', function($scope, $stateParams, $window, $ionicLoading, $state, Place, Story, Image, Sound) {
   var id = $stateParams.placeId;
 
   $scope.place = Place.get(id);
@@ -152,14 +152,20 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
 
   var tag = JSON.parse(JSON.stringify($scope.place.title));
   tag = 'stedr_' + tag.replace(/a+\?/gi, "å").replace(/00oe/g, "ø").replace(/00ae/g, "æ").replace(/00OE/g, "Ø").replace(/00AE/g, "Æ").replace(/00aa/g, "å").replace(/00AA/g, "Å").replace(/ /g, "_");
-  
-  console.log("TAG: ", tag);
-  
+
   Image.list(tag).then(function(images) {
     $scope.images = images;
     imagesLoaded = true;
     loadingFinished();
   })
+
+  $scope.goto = function(tag) {
+    if (tag == 'image') {
+      $state.go('app.help_picture');
+    } else if (tag == 'sound') {
+      $state.go('app.help_sound');
+    }
+  }
 
   Sound.list(tag).then(function(sounds) {
     $scope.sounds = sounds;

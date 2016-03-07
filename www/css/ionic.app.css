@@ -9243,3 +9243,11 @@ audio {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis; }
+
+.bottom {
+  width: 100%;
+  color: #fff;
+  background: #40B0D2;
+  border: 0;
+  padding: 5px;
+  margin-bottom: -2px; }
