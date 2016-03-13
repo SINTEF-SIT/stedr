@@ -9221,6 +9221,14 @@ audio {
       padding: 5%;
       font-size: 120%; }
 
+.digitaltfortalt-logo {
+  background: url("../img/digitaltfortaltlogo.png");
+  width: 15px;
+  height: 30px;
+  display: inline-block;
+  z-index: 5000;
+  padding-top: 15px; }
+
 .stedr-card {
   width: 44%;
   display: block;

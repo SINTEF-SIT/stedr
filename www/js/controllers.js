@@ -129,7 +129,7 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
   }
 })
 
-.controller('PlaceCtrl', function($scope, $stateParams, $window, $ionicLoading, $state, Place, Story, Image, Sound) {
+.controller('PlaceCtrl', function($scope, $stateParams, $window, $ionicLoading, $state, Place, Story, Image, Sound, TwitterApp) {
   var id = $stateParams.placeId;
 
   $scope.place = Place.get(id);
@@ -158,6 +158,17 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
     imagesLoaded = true;
     loadingFinished();
   })
+
+  TwitterApp.isAvailable().then(function(confirmation) {
+    if (confirmation) {
+      $scope.twitter = true;
+    }
+  });
+
+  $scope.tweet = function() {
+    var link = TwitterApp.createLink(tag, '');
+    window.open(link, '_system', 'location=no');
+  }
 
   $scope.goto = function(tag) {
     if (tag == 'image') {
@@ -244,6 +255,18 @@ angular.module('stedr.controllers', ['stedr.services', 'ngCordova', 'ksSwiper'])
     }
 
     return false;
+  }
+
+  $scope.openInWebBrowser = function() {
+    window.open($scope.story.link, '_system', 'location=no');
+  }
+
+  $scope.numberImages = function() {
+    return $scope.story.pictures.length;
+  }
+
+  $scope.numberVideos = function() {
+    return $scope.story.videos.length;
   }
 
   for(var i = 0; i < $scope.story.videos.length; i++) {

@@ -1,4 +1,4 @@
-<ion-view view-title="{{ story.title }}">
+<ion-view view-title="<img src='/img/digitaltfortaltlogo.png' class='digitaltfortalt-logo'/> {{ story.title }}">
   <ion-content>
     <div ng-show="pictureTab" ng-init="pictureTab=true">
       <ks-swiper-container speed="2000" loop="false" show-nav-buttons="false" slides-per-view="1" space-between="5" pagination-clickable="true" override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 1,slideShadows : true}}">
@@ -21,8 +21,8 @@
       </ks-swiper-container>
     </div>
     <div class="stedrTabs" ng-show="hasVideo(videos)">
-      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[pictureTab]" ng-click="pictureTab = true; videoTab=false">Images</a></span>
-      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[videoTab]" ng-click="videoTab = true; pictureTab=false">Video</a></span>
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[pictureTab]" ng-click="pictureTab = true; videoTab=false">Images ({{ numberImages() }})</a></span>
+      <span class="item-holder"><a class="tab-item" ng-class="{true: 'active', false: ''}[videoTab]" ng-click="videoTab = true; pictureTab=false">Video ({{ numberVideos() }})</a></span>
     </div>
 
     <div class="ingress">
@@ -33,6 +33,8 @@
 
     <div class="mainContent">
       {{ story.fortelling }}
+
+      <button ng-click="openInWebBrowser()" class="btn bottom">Read at DigitaltMuseum</button>
     </div>
 
   </ion-content>

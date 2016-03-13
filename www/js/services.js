@@ -1,4 +1,4 @@
-angular.module('stedr.services', [])
+angular.module('stedr.services', ['ngCordova'])
 
 
 .factory('Place', function($http, $q, ApiEndpoint) {
@@ -134,11 +134,55 @@ angular.module('stedr.services', [])
   }
 })
 
-/*
-.factory('Tweet', function($resource, ApiEndpoint) {
+.factory('TwitterApp', function($q, $cordovaAppAvailability, $cordovaDevice) {
+  var appInstalled = false;
+  var hasChecked = false;
 
+  return {
+    isAvailable: function() {
+      var deferred = $q.defer();
+      if (hasChecked) {
+        deferred.resolve(appInstalled);
+      }
+
+      var link = "";
+      if (window.cordova) {
+        if($cordovaDevice.getPlatform() === 'iOS') {
+          link = "twitter://";
+        } else if ($cordovaDevice.getPlatform() === 'Android') {
+          link = "com.twitter.android";
+        }
+
+
+        $cordovaAppAvailability.check(link).then(function() {
+          appInstalled = true;
+          hasChecked = true;
+          deferred.resolve(appInstalled);
+        }, function() {
+          appInstalled = false;
+          hasChecked = true;
+          deferred.resolve(appInstalled);
+        });
+      } else {
+        deferred.resolve(false);
+      }
+
+      return deferred.promise;
+    },
+    createLink: function(tag, url) {
+      var link = "";
+      if(device.Platform === 'iOS') {
+        link = "twitter://";
+      } else if (device.Platform === 'Android') {
+        link = "com.twitter.android";
+      }
+
+      link += '/intent/tweet?url=' + url + '&hashtags=' + tag;
+
+      return link;
+    }
+  }
 })
-*/
 
 .factory('Collection', function($http, $q, ApiEndpoint) {
   var collections;
@@ -172,10 +216,3 @@ angular.module('stedr.services', [])
     }
   }
 })
-
-/*
-.factory('CollectionPlace', function($resource, ApiEndpoint) {
-  var url = ApiEndpoint.url + '/places_in_collection.json'
-  return $resource(url);
-})
-*/
